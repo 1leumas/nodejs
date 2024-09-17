@@ -1,4 +1,4 @@
-import { expect, describe, it } from "vitest";
+import { expect, describe, it, beforeEach } from "vitest";
 import { RegisterService } from "./register-service";
 import { compare } from "bcryptjs";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
@@ -8,12 +8,16 @@ const name = "John Doe";
 const email = "email@example.com";
 const password = "password123";
 
-describe("Register Service", () => {
-  it("should be able to register", async () => {
-    // Arrange
-    const repo = new InMemoryUsersRepository();
-    const registerService = new RegisterService(repo);
+let repo: InMemoryUsersRepository;
+let registerService: RegisterService;
 
+describe("Register Service", () => {
+  beforeEach(() => {
+    repo = new InMemoryUsersRepository();
+    registerService = new RegisterService(repo);
+  })
+
+  it("should be able to register", async () => {
     // Act
     await registerService.execute(name, email, password);
 
@@ -23,10 +27,6 @@ describe("Register Service", () => {
   });
 
   it("should hash user password upon registration", async () => {
-    // Arrange
-    const repo = new InMemoryUsersRepository();
-    const registerService = new RegisterService(repo);
-
     // Act
     const { user } = await registerService.execute(name, email, password);
     const isPasswordCorrectlyHashed = await compare(
@@ -39,10 +39,6 @@ describe("Register Service", () => {
   });
 
   it("should not be able to create user with duplicate emails", async () => {
-    // Arrange
-    const repo = new InMemoryUsersRepository();
-    const registerService = new RegisterService(repo);
-
     // Act
     await registerService.execute(name, email, password);
 
