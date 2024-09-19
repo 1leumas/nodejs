@@ -2,7 +2,7 @@ import { expect, describe, it, beforeEach } from "vitest";
 import { AuthenticateService } from "./authenticate-service";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
 import bcrypt from "bcryptjs";
-import { InvalidCredentialsError } from "./errors/invalid-credentials";
+import { InvalidCredentialsError } from "./errors/invalid-credentials-error";
 
 const name = "John Doe";
 const email = "email@example.com";

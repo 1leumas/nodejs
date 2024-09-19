@@ -1,6 +1,6 @@
 import { UsersInterface } from "@/repositories/users-interface";
 import bcrypt from "bcryptjs";
-import { InvalidCredentialsError } from "./errors/invalid-credentials";
+import { InvalidCredentialsError } from "./errors/invalid-credentials-error";
 import { User } from "@prisma/client";
 
 export class AuthenticateService {
