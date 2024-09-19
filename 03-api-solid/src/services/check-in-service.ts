@@ -1,4 +1,4 @@
-import { CheckInInterface } from "@/repositories/checkin-interface";
+import { CheckInInterface } from "@/repositories/check-in-interface";
 import { GymsInterface } from "@/repositories/gyms-interface";
 import { ResourceNotFoundError } from "@/services/errors/resource-not-found-error";
 import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";

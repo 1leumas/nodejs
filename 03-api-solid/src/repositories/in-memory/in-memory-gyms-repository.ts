@@ -18,7 +18,7 @@ export class InMemoryGymsRepository implements GymsInterface {
   }
 
   async create(
-    id: string | null,
+    id: string | undefined,
     title: string,
     description: string | null,
     phone: string | null,

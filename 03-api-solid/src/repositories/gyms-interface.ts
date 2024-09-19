@@ -3,7 +3,7 @@ import { Gym } from "@prisma/client";
 export interface GymsInterface {
   findById(id: string): Promise<Gym | null>;
   create(
-    id: string | null,
+    id: string | undefined,
     title: string,
     description: string | null,
     phone: string | null,

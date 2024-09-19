@@ -1,4 +1,4 @@
-import { CheckInInterface } from "@/repositories/checkin-interface";
+import { CheckInInterface } from "@/repositories/check-in-interface";
 import { Prisma, CheckIn } from "@prisma/client";
 import dayjs from "dayjs";
 import { randomUUID } from "node:crypto";
